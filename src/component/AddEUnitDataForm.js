@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddEUnitDataForm(props) {
-  const { formData, setFormData } = props;
+  const { formData, setFormData, onActionCompleted } = props;
 
   const {
     register,
@@ -84,6 +84,7 @@ export default function AddEUnitDataForm(props) {
 
     saveData(formData, E_UNIT_STORE)
       .then(() => {
+        onActionCompleted();
         handleSuccessSnackBar("Success");
       })
       .catch((error) => {

@@ -109,12 +109,12 @@ export default function MyTable(props) {
           <TableBody>
             <TableRow key={"key"}>
               <TableCell>{"Weekly"}</TableCell>
-              <TableCell>{dataList.totalInWeek || 0}</TableCell>
+              <TableCell>{dataList.totalInWeek || 0}Kwh</TableCell>
             </TableRow>
 
             <TableRow key={"key2"}>
               <TableCell>{"Monthly"}</TableCell>
-              <TableCell>{dataList.totalInMonth || 0}</TableCell>
+              <TableCell>{dataList.totalInMonth || 0}Kwh</TableCell>
             </TableRow>
           </TableBody>
         </table>

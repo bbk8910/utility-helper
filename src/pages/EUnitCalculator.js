@@ -14,10 +14,10 @@ export default function EUnitCalculator(prosp) {
   const action = true;
 
   useEffect(() => {
-    getStocksMap();
+    getDataFromDB();
   }, []);
 
-  function getStocksMap() {
+  function getDataFromDB() {
     getAllData(E_UNIT_STORE).then((data) => {
       let totalInWeek = 0;
       let totalInMonth = 0;
@@ -32,8 +32,12 @@ export default function EUnitCalculator(prosp) {
     });
   }
 
+  function onActionCompleted() {
+    getDataFromDB();
+  }
+
   const columns = [
-    { field: "id", headerName: "Deivece_Name" },
+    { field: "id", headerName: "Deivece_Name", width: 160 },
     { field: "watt", headerName: "Watts" },
     { field: "useTimeInHour", headerName: "Use(hour)" },
     {
@@ -86,7 +90,10 @@ export default function EUnitCalculator(prosp) {
   return (
     <Box sx={{ width: "100%" }} className="page-wrapper">
       <div className="my-form">
-        <AddEUnitDataForm formData={formData} />
+        <AddEUnitDataForm
+          formData={formData}
+          onActionCompleted={onActionCompleted}
+        />
       </div>
       <div className="my-table">
         <MyTable
@@ -96,7 +103,6 @@ export default function EUnitCalculator(prosp) {
           setFormData={setFormData}
           formData={formData}
           action={action}
-          footer={footer}
         />
       </div>
     </Box>
