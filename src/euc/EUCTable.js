@@ -9,7 +9,7 @@ import {
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import { DeleteForever } from "@material-ui/icons";
-import { deleteData, E_UNIT_STORE } from "../../dao/utilityDao";
+import { deleteData, E_UNIT_STORE } from "../dao/utilityDao";
 import {
   Pagination,
   TableBody,
@@ -18,7 +18,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-export default function MyTable(props) {
+export default function EUCTable(props) {
   const { columns, dataList, setDataList, setFormData, formData, action } =
     props;
 

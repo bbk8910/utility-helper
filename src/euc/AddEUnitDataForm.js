@@ -1,46 +1,20 @@
 import React from "react";
-import {
-  Button,
-  Grid,
-  TextField,
-  Typography,
-  makeStyles,
-  Box,
-} from "@material-ui/core";
+import { Grid, TextField, Typography, Box } from "@material-ui/core";
 
 import { Save } from "@material-ui/icons";
 import { Stack } from "@mui/material";
 
 import { useForm } from "react-hook-form";
 import { E_UNIT_STORE, saveData } from "../dao/utilityDao";
-import { ServiceButton } from "./ServiceButton.js";
-import MySnackBar from "./SnackBar.js";
+import { ServiceButton } from "../component/ServiceButton.js";
+import MySnackBar from "../component/SnackBar.js";
 import { calculateTotalConsumeUnitInKWh } from "../service/EUnitService";
 import { MONTH_IN_DAYS, WEEK_IN_DAYS } from "../constant/Constant";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  title: {
-    marginBottom: theme.spacing(2),
-  },
-  textField: {
-    marginBottom: theme.spacing(0),
-  },
-  dynamicField: {
-    marginBottom: theme.spacing(2),
-  },
-  button: {
-    marginRight: theme.spacing(2),
-  },
-  item: {
-    padding: theme.spacing(2),
-  },
-}));
+import { useStyles } from "../constant/ThemeProvider";
 
 export default function AddEUnitDataForm(props) {
   const { formData, setFormData, onActionCompleted } = props;
+  const classes = useStyles();
 
   const {
     register,
@@ -49,8 +23,6 @@ export default function AddEUnitDataForm(props) {
   } = useForm({
     values: formData,
   });
-
-  const classes = useStyles();
 
   const [loading, setLoading] = React.useState(false);
 
@@ -191,11 +163,10 @@ export default function AddEUnitDataForm(props) {
                 onClick={handleSubmit}
                 loading={loading}
                 name={"save"}
+                type={"submit"}
                 icon={<Save />}
               />
-              <Button variant="outlined" type="reset">
-                Reset
-              </Button>
+              <ServiceButton variant="outlined" type="reset" name={"Reset"} />
             </Stack>
           </Grid>
           <MySnackBar

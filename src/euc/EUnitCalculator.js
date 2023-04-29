@@ -1,9 +1,9 @@
 import { Box } from "@material-ui/core";
 import React, { useEffect } from "react";
 
-import MyTable from "../component/table/MyTable";
+import MyTable from "./EUCTable";
 import { E_UNIT_STORE, getAllData } from "../dao/utilityDao";
-import AddEUnitDataForm from "../component/AddEUnitDataForm";
+import AddEUnitDataForm from "./AddEUnitDataForm";
 import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
 import { Edit } from "@material-ui/icons";

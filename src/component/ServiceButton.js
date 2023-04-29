@@ -1,7 +1,7 @@
 import { LoadingButton } from "@mui/lab";
 
 export function ServiceButton(props) {
-  const { loading, onClick, type, name, className, icon } = props;
+  const { loading, onClick, type, name, className, icon, variant } = props;
   return (
     <LoadingButton
       className={className}
@@ -9,8 +9,8 @@ export function ServiceButton(props) {
       endIcon={icon}
       loading={loading}
       loadingPosition="end"
-      variant="contained"
-      type="submit"
+      variant={variant || "contained"}
+      type={type}
     >
       <span>{name}</span>
     </LoadingButton>

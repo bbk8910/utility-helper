@@ -4,8 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import EUnitCalculator from "./EUnitCalculator";
+import EUnitCalculator from "../euc/EUnitCalculator";
 import { CURRENT_TAB_KEY } from "../constant/Constant";
+import Statics from "../statics/Statics";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,10 +73,10 @@ export default function HomeTab(props) {
         <EUnitCalculator />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div>Hello compoent</div>
+        <Statics />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <div>Hello compoennt</div>
+        <div>Comming soon...</div>
       </TabPanel>
     </Box>
   );
