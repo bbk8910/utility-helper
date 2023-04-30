@@ -3,7 +3,7 @@ export function getSum(values) {
 }
 
 export function calculateMean(sum, lenght) {
-  return sum / lenght;
+  return (sum / lenght).toFixed(2);
 }
 
 //to  measure of central tendency in a set of data.

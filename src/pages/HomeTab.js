@@ -66,7 +66,7 @@ export default function HomeTab(props) {
         >
           <Tab label="E-Unit" value={1} />
           <Tab label="Statics" value={2} />
-          <Tab label="Tab3" value={3} />
+          <Tab label="Probablity" value={3} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={1}>
