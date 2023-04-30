@@ -53,12 +53,16 @@ code {
 }
 
 .static-wrapper {
-  display: flex;
-  gap: 50px;
 }
 
 .static-form {
   width: 100%;
+}
+.static-result {
+  margin-top: 30px;
+}
+#table-header {
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 768px) {

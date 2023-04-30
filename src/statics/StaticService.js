@@ -22,30 +22,27 @@ export function calculateMedian(values, lenght) {
 }
 
 // defined as the value that has higher frequency in a given set of values. It is the value that appears the most number of times
-export function calculateMode(values, lenght) {
-  const counts = {};
+export function calculateMode(arr, lenght) {
+  const mode = {};
+  let max = 0,
+    count = 0;
 
   for (let i = 0; i < lenght; i++) {
-    const value = values[i];
-    counts[value] = counts[value] ? counts[value] + 1 : 1;
-  }
+    const item = arr[i];
 
-  let maxCount = 0;
-  let modes = [];
+    if (mode[item]) {
+      mode[item]++;
+    } else {
+      mode[item] = 1;
+    }
 
-  for (const value in counts) {
-    if (counts.hasOwnProperty(value)) {
-      const count = counts[value];
-      if (count > maxCount) {
-        maxCount = count;
-        modes = [value];
-      } else if (count === maxCount) {
-        modes.push(value);
-      }
+    if (count < mode[item]) {
+      max = item;
+      count = mode[item];
     }
   }
 
-  return modes;
+  return { value: max, occurrence: count };
 }
 
 export function getLargest(values) {
@@ -65,23 +62,37 @@ export function calculateRange(min, max) {
 
 export function calculateGeometricMean(values, length) {
   const product = values.reduce((acc, num) => acc * num);
-  return Math.pow(product, 1 / length);
+  return Math.pow(product, 1 / length).toFixed(2);
 }
 
 export function calculateSampleVariance(values, mean, length) {
   return (
-    values.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / (length - 1)
-  );
+    values.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) /
+    (length - 1)
+  ).toFixed(2);
 }
+//  It measures the average of the squared differences from the mean. A high variance indicates that the data points are far from the mean, while a low variance indicates that the data points are close to the mean.
+
+// The formula to calculate variance is:
+
+// Variance = (1/n) * Σ(xi - x̄)^2
+
+// where n is the number of data points, xi is the i-th data point, x̄ is the mean of the data, and Σ is the sum from i=1 to n.
+
+// In other words, you calculate the difference between each data point and the mean, square each difference, sum the squared differences, and divide by the number of data points.
+
+// Variance is often used in conjunction with standard deviation to provide a more complete picture of the spread of a data set. The standard deviation is the square root of the variance.
 
 export function calculatePopulationVariance(values, mean, length) {
-  return values.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / length;
+  const result =
+    values.reduce((acc, num) => acc + Math.pow(num - mean, 2), 0) / length;
+  return result.toFixed(2);
 }
 
 export function calculatePopulationStandardDeviation(populationVariance) {
-  return Math.sqrt(populationVariance);
+  return Math.sqrt(populationVariance).toFixed(2);
 }
 
 export function calculateSampleStandardDeviation(sampleVariance) {
-  return Math.sqrt(sampleVariance);
+  return Math.sqrt(sampleVariance).toFixed(2);
 }

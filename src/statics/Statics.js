@@ -22,12 +22,7 @@ import {
 export default function Statics(props) {
   const [loading, setLoading] = React.useState(false);
   const classes = useStyles();
-  const [result, setResult] = React.useState({
-    count: 0,
-    sum: 0,
-    mean: 0,
-    mode: 0,
-  });
+  const [result, setResult] = React.useState({});
 
   function calculateStatics(values) {
     console.log(values);
@@ -79,7 +74,7 @@ export default function Statics(props) {
         className="static-form"
       >
         <TextareaAutosize
-          placeholder="Enter your data set in csv format with comma eg: 1, 2, 3"
+          placeholder="Enter your data set in csv format eg: 1, 2, 3"
           name="staticsData"
           required
           style={{ width: "100%", minHeight: 174 }}
@@ -106,7 +101,7 @@ export default function Statics(props) {
           />
         </Stack>
       </form>
-      <div>
+      <div className="static-result">
         <StaticResult result={result} />
       </div>
     </div>

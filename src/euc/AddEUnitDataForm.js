@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { E_UNIT_STORE, saveData } from "../dao/utilityDao";
 import { ServiceButton } from "../component/ServiceButton.js";
 import MySnackBar from "../component/SnackBar.js";
-import { calculateTotalConsumeUnitInKWh } from "../service/EUnitService";
+import { calculateTotalConsumeUnitInKWh } from "./EUnitService";
 import { MONTH_IN_DAYS, WEEK_IN_DAYS } from "../constant/Constant";
 import { useStyles } from "../constant/ThemeProvider";
 

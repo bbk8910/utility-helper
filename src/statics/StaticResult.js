@@ -10,6 +10,15 @@ import {
 import * as React from "react";
 export default function StaticResult(props) {
   const { result } = props;
+  console.log("Result: {}", result);
+  let mode = result.mode;
+  if (mode) {
+    mode =
+      result.mode.value + ", appeared " + result.mode.occurrence + " times";
+  } else {
+    mode = "";
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -18,77 +27,43 @@ export default function StaticResult(props) {
             <TableCell className="table-header">Key</TableCell>
             <TableCell className="table-header">Value</TableCell>
           </TableRow> */}
+          <TableRow>
+            <TableCell id="table-header">{"Count"}</TableCell>
+            <TableCell id="table-header">{"Sum"}</TableCell>
+            <TableCell id="table-header">{"Mean(Average)"}</TableCell>
+            <TableCell id="table-header">{"Median"}</TableCell>
+            <TableCell id="table-header">{"Mode"}</TableCell>
+            <TableCell id="table-header">{"Largest"}</TableCell>
+            <TableCell id="table-header">{"Smallest"}</TableCell>
+            <TableCell id="table-header">{"Range"}</TableCell>
+            <TableCell id="table-header">{"Geometric_Mean"}</TableCell>
+            <TableCell id="table-header">{"Variance"}</TableCell>
+
+            <TableCell id="table-header">{"Standard Deviation"}</TableCell>
+            <TableCell id="table-header">{"Sample_Variance"}</TableCell>
+
+            <TableCell id="table-header">
+              {"Sample Standard_Deviation"}
+            </TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
-          {/* {Object.entries(result).map(([key, value]) => (
-            <TableRow key={key}>
-              <TableCell>{key}</TableCell>
-              <TableCell>{value}</TableCell>
-            </TableRow>
-          ))} */}
           <TableRow key={1}>
-            <TableCell>{"Count"}</TableCell>
             <TableCell>{result.count}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Sum"}</TableCell>
             <TableCell>{result.sum}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Mean(Average)"}</TableCell>
             <TableCell>{result.mean}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Median"}</TableCell>
             <TableCell>{result.median}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Mode"}</TableCell>
-            <TableCell>{result.mode}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Largest"}</TableCell>
+            <TableCell>{mode}</TableCell>
             <TableCell>{result.max}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Smallest"}</TableCell>
             <TableCell>{result.min}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Range"}</TableCell>
             <TableCell>{result.range}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Geometric_Mean"}</TableCell>
             <TableCell>{result.geometricMean}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Standard_Deviation"}</TableCell>
-            <TableCell>{result.populationSD}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Variance"}</TableCell>
             <TableCell>{result.variance}</TableCell>
-          </TableRow>
 
-          <TableRow key={2}>
-            <TableCell>{"Sample_Standard_Deviation"}</TableCell>
-            <TableCell>{result.sampleSD}</TableCell>
-          </TableRow>
-
-          <TableRow key={2}>
-            <TableCell>{"Sample_Variance"}</TableCell>
+            <TableCell>{result.populationSD}</TableCell>
             <TableCell>{result.sampleVariance}</TableCell>
+
+            <TableCell>{result.sampleSD}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
