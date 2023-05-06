@@ -87,7 +87,7 @@ export default function AddEUnitDataForm(props) {
   }
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box>
       <Typography variant="h4" component="h1" className={classes.title}>
         Add Item
       </Typography>
@@ -156,7 +156,7 @@ export default function AddEUnitDataForm(props) {
             />
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Stack direction="row" spacing={1}>
               <ServiceButton
                 className={classes.button}

@@ -23,7 +23,7 @@ code {
   gap: 20px;
   max-width: 1500px;
   margin: auto;
-  padding: 20px;
+  /* padding: 20px; */
   /* align-items: center; */
 }
 
@@ -38,7 +38,7 @@ code {
   max-width: 35%;
 }
 
-.my-table {
+.eu-table {
   max-width: 65%;
 }
 .span-key {
@@ -81,8 +81,9 @@ code {
     max-width: 100%;
   }
 
-  .my-table {
+  .eu-table {
     width: 100%;
     max-width: 100%;
+    margin-top: 20px;
   }
 }

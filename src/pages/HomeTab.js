@@ -57,7 +57,7 @@ export default function HomeTab(props) {
   };
 
   return (
-    <Box sx={{ width: "100%" }} className="tab-wrapper">
+    <Box className="tab-wrapper">
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}

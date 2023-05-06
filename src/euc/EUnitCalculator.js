@@ -88,14 +88,14 @@ export default function EUnitCalculator(prosp) {
   };
 
   return (
-    <Box sx={{ width: "100%" }} className="page-wrapper">
+    <Box className="page-wrapper">
       <div className="my-form">
         <AddEUnitDataForm
           formData={formData}
           onActionCompleted={onActionCompleted}
         />
       </div>
-      <div className="my-table">
+      <div className="eu-table">
         <MyTable
           columns={columns}
           dataList={dataList}
