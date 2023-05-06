@@ -1,11 +1,18 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import HomeTab from "./pages/HomeTab";
 
 function AppRoutes(props) {
   return (
     <Switch>
-      <Route path="/" component={HomeTab} exact />
+      <Route path="/utility-helper" component={HomeTab} exact />
+      <Route
+        exact
+        path="/"
+        render={() => {
+          return <Redirect to="/utility-helper" />;
+        }}
+      />
     </Switch>
   );
 }
