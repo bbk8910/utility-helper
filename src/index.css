@@ -23,8 +23,7 @@ code {
   gap: 20px;
   max-width: 1500px;
   margin: auto;
-  /* padding: 20px; */
-  /* align-items: center; */
+  justify-content: space-around;
 }
 
 .tab-wrapper {
@@ -39,7 +38,7 @@ code {
 }
 
 .eu-table {
-  max-width: 65%;
+  /* max-width: 65%; */
 }
 .span-key {
   font-weight: 600;
