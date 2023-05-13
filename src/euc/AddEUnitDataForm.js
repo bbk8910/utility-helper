@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid, TextField, Typography, Box } from "@material-ui/core";
+import { Grid, TextField, Box } from "@material-ui/core";
 
-import { Clear, Save, SaveAltSharp } from "@material-ui/icons";
+import { SaveAltSharp } from "@material-ui/icons";
 import { Stack } from "@mui/material";
 
 import { useForm } from "react-hook-form";
@@ -11,7 +11,7 @@ import MySnackBar from "../component/SnackBar.js";
 import { calculateTotalConsumeUnitInKWh } from "./EUnitService";
 import { MONTH_IN_DAYS, WEEK_IN_DAYS } from "../constant/Constant";
 import { useStyles } from "../constant/ThemeProvider";
-import { CleanHands, ClearAll } from "@mui/icons-material";
+import { ClearAll } from "@mui/icons-material";
 
 export default function AddEUnitDataForm(props) {
   const { formData, setFormData, onActionCompleted } = props;

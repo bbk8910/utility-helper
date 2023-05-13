@@ -1,12 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-} from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import * as React from "react";
 import { useStyles } from "../constant/ThemeProvider";
