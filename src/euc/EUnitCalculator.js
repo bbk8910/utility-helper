@@ -7,6 +7,7 @@ import AddEUnitDataForm from "./AddEUnitDataForm";
 import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
 import { Edit } from "@material-ui/icons";
+import { ServiceButton } from "../component/ServiceButton";
 
 export default function EUnitCalculator(prosp) {
   const [dataList, setDataList] = React.useState([]);
@@ -37,7 +38,7 @@ export default function EUnitCalculator(prosp) {
   }
 
   const columns = [
-    { field: "id", headerName: "Deivece_Name", width: 160 },
+    { field: "id", headerName: "Deivece_Name", width: 180 },
     { field: "watt", headerName: "Watts" },
     { field: "useTimeInHour", headerName: "Use(hour)" },
     {
@@ -55,37 +56,20 @@ export default function EUnitCalculator(prosp) {
       renderCell: (params) => (
         <Stack direction="row" spacing={1}>
           {action ? (
-            <Button
+            <ServiceButton
               size="small"
               variant="contained"
               color="primary"
-              startIcon={<Edit />}
+              icon={<Edit />}
               onClick={() => {
                 setFormData(params.row || {});
               }}
-            >
-              Edit
-            </Button>
+            />
           ) : null}
         </Stack>
       ),
     },
   ];
-
-  const footer = () => {
-    return (
-      <div>
-        <div>
-          <span className="span-key">Weekly: </span>
-          <span className="span-value">{200} Kwh</span>
-        </div>
-        <div>
-          <span className="span-key">Monthly: </span>
-          <span className="span-value">{200} Kwh</span>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <Box className="page-wrapper">

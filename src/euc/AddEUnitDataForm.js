@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, TextField, Typography, Box } from "@material-ui/core";
 
-import { Save } from "@material-ui/icons";
+import { Clear, Save, SaveAltSharp } from "@material-ui/icons";
 import { Stack } from "@mui/material";
 
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import MySnackBar from "../component/SnackBar.js";
 import { calculateTotalConsumeUnitInKWh } from "./EUnitService";
 import { MONTH_IN_DAYS, WEEK_IN_DAYS } from "../constant/Constant";
 import { useStyles } from "../constant/ThemeProvider";
+import { CleanHands, ClearAll } from "@mui/icons-material";
 
 export default function AddEUnitDataForm(props) {
   const { formData, setFormData, onActionCompleted } = props;
@@ -88,9 +89,6 @@ export default function AddEUnitDataForm(props) {
 
   return (
     <Box>
-      <Typography variant="h4" component="h1" className={classes.title}>
-        Add Item
-      </Typography>
       <form onSubmit={handleSubmit(save)}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
@@ -117,11 +115,11 @@ export default function AddEUnitDataForm(props) {
             <TextField
               id="formatted-numberformat-input"
               variant="outlined"
-              fullWidth
               className={classes.textField}
               label="Watt"
               name="watt"
               inputProps={{ type: "number", step: ".01" }}
+              fullWidth
               InputLabelProps={{
                 shrink: true,
               }}
@@ -162,11 +160,18 @@ export default function AddEUnitDataForm(props) {
                 className={classes.button}
                 onClick={handleSubmit}
                 loading={loading}
+                color={"primary"}
                 name={"save"}
                 type={"submit"}
-                icon={<Save />}
+                icon={<SaveAltSharp sx={{ mr: 1 }} />}
               />
-              <ServiceButton variant="outlined" type="reset" name={"Reset"} />
+              <ServiceButton
+                variant="outlined"
+                type="reset"
+                name={"Reset"}
+                color={""}
+                icon={<ClearAll sx={{ mr: 1 }} />}
+              />
             </Stack>
           </Grid>
           <MySnackBar

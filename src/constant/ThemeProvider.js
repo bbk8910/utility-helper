@@ -3,6 +3,10 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  paper: {
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
   title: {
     marginBottom: theme.spacing(2),
   },

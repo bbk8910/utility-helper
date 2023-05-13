@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Grid, Stack, TextareaAutosize } from "@mui/material";
-import { Calculate } from "@mui/icons-material";
+import { Calculate, ClearAll } from "@mui/icons-material";
 import { useStyles } from "../constant/ThemeProvider";
 import { ServiceButton } from "../component/ServiceButton";
 import StaticResult from "./StaticResult";
@@ -59,49 +59,48 @@ export default function Statics(props) {
     console.log("Statics result:", staticsResult);
   }
   return (
-    <div className="static-wrapper">
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          const staticsData = new FormData(event.target).get("staticsData");
-          const numberArray = staticsData
-            .split(",")
-            .filter((str) => !isNaN(str))
-            .map((str) => parseInt(str));
+    <div className="page-wrapper">
+      <div className="static-form">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            const staticsData = new FormData(event.target).get("staticsData");
+            const numberArray = staticsData
+              .split(",")
+              .filter((str) => !isNaN(str))
+              .map((str) => parseInt(str));
 
-          calculateStatics(numberArray);
-        }}
-        className="static-form"
-      >
-        <TextareaAutosize
-          placeholder="Enter your data set in csv format eg: 1, 2, 3"
-          name="staticsData"
-          required
-          style={{ width: "100%", minHeight: 174 }}
-        />
-
-        <Stack
-          direction="row"
-          spacing={1}
-          sx={{ justifyContent: "center", mt: 3 }}
+            calculateStatics(numberArray);
+          }}
         >
-          <ServiceButton
-            className={classes.button}
-            loading={loading}
-            name={"Calculate"}
-            icon={<Calculate />}
-            type={"submit"}
+          <TextareaAutosize
+            placeholder="Enter your data set  eg: 1, 2, 3"
+            name="staticsData"
+            required
+            style={{ width: "100%", minHeight: 174 }}
           />
-          <ServiceButton
-            className={classes.button}
-            variant="outlined"
-            type="reset"
-            name={"Reset"}
-            variant={"outlined"}
-          />
-        </Stack>
-      </form>
-      <div className="static-result">
+
+          <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+            <ServiceButton
+              className={classes.button}
+              color={"primary"}
+              loading={loading}
+              name={"Calculate"}
+              icon={<Calculate sx={{ mr: 1 }} />}
+              type={"submit"}
+            />
+            <ServiceButton
+              className={classes.button}
+              color={""}
+              variant="outlined"
+              type="reset"
+              name={"Reset"}
+              icon={<ClearAll sx={{ mr: 1 }} />}
+            />
+          </Stack>
+        </form>
+      </div>
+      <div className="static-table">
         <StaticResult result={result} />
       </div>
     </div>

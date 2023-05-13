@@ -7,7 +7,9 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import * as React from "react";
+import { useStyles } from "../constant/ThemeProvider";
 export default function StaticResult(props) {
   const { result } = props;
   console.log("Result: {}", result);
@@ -19,54 +21,66 @@ export default function StaticResult(props) {
     mode = "";
   }
 
+  const classes = useStyles();
+
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          {/* <TableRow>
-            <TableCell className="table-header">Key</TableCell>
-            <TableCell className="table-header">Value</TableCell>
-          </TableRow> */}
-          <TableRow>
-            <TableCell id="table-header">{"Count"}</TableCell>
-            <TableCell id="table-header">{"Sum"}</TableCell>
-            <TableCell id="table-header">{"Mean(Average)"}</TableCell>
-            <TableCell id="table-header">{"Median"}</TableCell>
-            <TableCell id="table-header">{"Mode"}</TableCell>
-            <TableCell id="table-header">{"Largest"}</TableCell>
-            <TableCell id="table-header">{"Smallest"}</TableCell>
-            <TableCell id="table-header">{"Range"}</TableCell>
-            <TableCell id="table-header">{"Geometric_Mean"}</TableCell>
-            <TableCell id="table-header">{"Variance"}</TableCell>
+    <Grid item xs={12}>
+      <Paper className={classes.paper}>
+        <div className={"emi-summary-info-head-txt"}>
+          <span>STATICS RESULT </span>
+        </div>
+        <div className={"emi-summary-info-txt"}>
+          <div>
+            <span>Count</span>
+            <span className="detail-value"> {result.count}</span>
+          </div>
+          <div>
+            <span>sum</span>
+            <span className="detail-value"> {result.sum}</span>
+          </div>
+          <div>
+            <span>Mean(Average)</span>
+            <span className="detail-value"> {result.mean}</span>
+          </div>
+          <div>
+            <span>Median</span>
+            <span className="detail-value">{result.median}</span>
+          </div>
+          <div>
+            <span>Largest</span>
+            <span className="detail-value">{result.max}</span>
+          </div>
+          <div>
+            <span>Smallest</span>
+            <span className="detail-value">{result.min}</span>
+          </div>
 
-            <TableCell id="table-header">{"Standard Deviation"}</TableCell>
-            <TableCell id="table-header">{"Sample_Variance"}</TableCell>
-
-            <TableCell id="table-header">
-              {"Sample Standard_Deviation"}
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow key={1}>
-            <TableCell>{result.count}</TableCell>
-            <TableCell>{result.sum}</TableCell>
-            <TableCell>{result.mean}</TableCell>
-            <TableCell>{result.median}</TableCell>
-            <TableCell>{mode}</TableCell>
-            <TableCell>{result.max}</TableCell>
-            <TableCell>{result.min}</TableCell>
-            <TableCell>{result.range}</TableCell>
-            <TableCell>{result.geometricMean}</TableCell>
-            <TableCell>{result.variance}</TableCell>
-
-            <TableCell>{result.populationSD}</TableCell>
-            <TableCell>{result.sampleVariance}</TableCell>
-
-            <TableCell>{result.sampleSD}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+          <div>
+            <span>Range</span>
+            <span className="detail-value">{result.range}</span>
+          </div>
+          <div>
+            <span>Geometric_Mean</span>
+            <span className="detail-value">{result.geometricMean}</span>
+          </div>
+          <div>
+            <span>Variance</span>
+            <span className="detail-value">{result.variance}</span>
+          </div>
+          <div>
+            <span>Standard Deviation</span>
+            <span className="detail-value">{result.populationSD}</span>
+          </div>
+          <div>
+            <span>Sample_Variance</span>
+            <span className="detail-value">{result.sampleVariance}</span>
+          </div>
+          <div>
+            <span>Sample Standard_Deviation</span>
+            <span className="detail-value">{result.sampleSD}</span>
+          </div>
+        </div>
+      </Paper>
+    </Grid>
   );
 }

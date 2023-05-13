@@ -104,7 +104,7 @@ export default function EUCTable(props) {
         renderFooter={() => <CustomFooter />}
       />
 
-      <TableContainer component={Paper}>
+      <TableContainer>
         <table>
           <TableBody>
             <TableRow key={"key"}>

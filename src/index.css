@@ -34,11 +34,11 @@ code {
 }
 
 .my-form {
-  max-width: 35%;
+  max-width: 40%;
 }
 
 .eu-table {
-  /* max-width: 65%; */
+  width: 55%;
 }
 .span-key {
   font-weight: 600;
@@ -60,8 +60,71 @@ code {
 .static-result {
   margin-top: 30px;
 }
+
 #table-header {
+  background: #f5f4f470;
+  font-weight: 700;
+}
+.more-detail-btn {
+  padding: 10px;
+}
+
+.detail-key {
+  margin-right: 5px;
+  color: #808080ff;
+}
+
+.detail-value {
+  font-weight: 700;
+}
+/* -------em summary-------- */
+
+.emi-monthly p {
+  font-size: 18px;
   font-weight: 600;
+}
+.emi-monthly div {
+  font-size: 18px;
+  font-weight: 600;
+  overflow: auto;
+}
+
+.emi-summary-info-head-txt {
+  text-align: center;
+  line-height: 2px;
+  font-weight: 700;
+  font-size: 19px;
+  padding: 20px;
+  display: contents;
+}
+.emi-summary-info-txt div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px;
+}
+.emi-summary-info-txt {
+  flex-basis: 30%;
+}
+
+.emi-form {
+  max-width: 65%;
+  width: 65%;
+}
+.emi-summary {
+  max-width: 50%;
+  width: 35%;
+}
+
+/* -------statics---------- */
+.static-form {
+  max-width: 65%;
+  width: 65%;
+}
+.static-table {
+  max-width: 50%;
+  width: 35%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -81,6 +144,28 @@ code {
   }
 
   .eu-table {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .emi-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .emi-summary {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  /* -------statics---------- */
+  .static-form {
+    width: 100%;
+    max-width: 100%;
+  }
+  .static-table {
     width: 100%;
     max-width: 100%;
     margin-top: 20px;

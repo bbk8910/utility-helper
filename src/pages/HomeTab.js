@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import EUnitCalculator from "../euc/EUnitCalculator";
 import { CURRENT_TAB_KEY } from "../constant/Constant";
 import Statics from "../statics/Statics";
+import { EmiCalculator } from "../emi/EmiCalculator";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,7 +67,8 @@ export default function HomeTab(props) {
         >
           <Tab label="E-Unit" value={1} />
           <Tab label="Statics" value={2} />
-          <Tab label="Probablity" value={3} />
+          <Tab label="EMI" value={3} />
+          <Tab label="Probability" value={4} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={1}>
@@ -76,6 +78,9 @@ export default function HomeTab(props) {
         <Statics />
       </TabPanel>
       <TabPanel value={value} index={3}>
+        <EmiCalculator />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
         <div>Comming soon...</div>
       </TabPanel>
     </Box>
