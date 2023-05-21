@@ -41,7 +41,7 @@ export default function AddEUnitDataForm(props) {
 
   const save = (data) => {
     setLoading(true);
-    formData.id = data.id;
+    formData.deviceName = data.deviceName;
     formData.watt = data.watt;
     formData.useTimeInHour = data.useTimeInHour;
     formData.totalConsumeUnitInWeek = calculateTotalConsumeUnitInKWh(
@@ -87,6 +87,10 @@ export default function AddEUnitDataForm(props) {
     }));
   }
 
+  function resetForm() {
+    setFormData({});
+  }
+
   return (
     <Box>
       <form onSubmit={handleSubmit(save)}>
@@ -98,15 +102,16 @@ export default function AddEUnitDataForm(props) {
               fullWidth
               className={classes.textField}
               label="Device Name"
-              name="id"
+              name="deviceName"
               InputLabelProps={{
                 shrink: true,
               }}
               onChange={handleInputChange}
-              {...register("id", { required: true })}
-              error={errors.id ? true : false}
+              {...register("deviceName", { required: true })}
+              error={errors.deviceName ? true : false}
               helperText={
-                errors.id?.type === "required" && "This filed is required"
+                errors.deviceName?.type === "required" &&
+                "This filed is required"
               }
             />
           </Grid>
@@ -168,6 +173,7 @@ export default function AddEUnitDataForm(props) {
               <ServiceButton
                 variant="outlined"
                 type="reset"
+                onClick={resetForm}
                 name={"Reset"}
                 color={""}
                 icon={<ClearAll sx={{ mr: 1 }} />}

@@ -47,7 +47,7 @@ export default function EmiSummary(props) {
             onClick={handleMoreDetail}
             loading={true}
             color={"primary"}
-            name={"Details"}
+            // name={"Details"}
             type={"submit"}
             size={"small"}
             disabled={emiResult.loanPeriod > 0 ? false : true}

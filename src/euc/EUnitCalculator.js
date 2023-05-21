@@ -38,7 +38,7 @@ export default function EUnitCalculator(prosp) {
   }
 
   const columns = [
-    { field: "id", headerName: "Deivece_Name", width: 180 },
+    { field: "deviceName", headerName: "Deivece_Name", width: 180 },
     { field: "watt", headerName: "Watts" },
     { field: "useTimeInHour", headerName: "Use(hour)" },
     {
@@ -76,6 +76,7 @@ export default function EUnitCalculator(prosp) {
       <div className="my-form">
         <AddEUnitDataForm
           formData={formData}
+          setFormData={setFormData}
           onActionCompleted={onActionCompleted}
         />
       </div>

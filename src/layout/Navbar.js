@@ -16,13 +16,13 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(false);
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Beenhere
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            onClick={null}
-          />
+          <div class="logo">
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} />
+          </div>
+
           <Typography
             variant="h6"
             noWrap
@@ -30,7 +30,7 @@ function Navbar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              // display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
 
@@ -38,7 +38,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            Utility Helper
+            UTILITY HELPER
           </Typography>
         </Toolbar>
       </Container>

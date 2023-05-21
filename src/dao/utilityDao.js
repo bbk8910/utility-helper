@@ -20,7 +20,7 @@ const getDB = () => {
           // Check if store exists
           db.createObjectStore(storeName, {
             keyPath: "id",
-            autoIncrement: false,
+            autoIncrement: true,
           });
         }
       });
@@ -34,8 +34,9 @@ const getDB = () => {
 };
 
 export async function saveData(object, storeName) {
-  const objFromDb = await getDataById(object.id, storeName);
-  if (objFromDb && objFromDb.id) {
+  console.log("Saving object: {}", object);
+
+  if (object && object.id) {
     return updateData(storeName, object.id, object);
   }
   return addData(object, storeName);
