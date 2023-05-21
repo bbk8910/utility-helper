@@ -61,8 +61,16 @@ export function calculateRange(min, max) {
 }
 
 export function calculateGeometricMean(values, length) {
-  const product = values.reduce((acc, num) => acc * num);
-  return Math.pow(product, 1 / length).toFixed(2);
+  let product = 1;
+  for (let i = 0; i < length; i++) {
+    product = product * values[i];
+  }
+
+  // compute geometric mean through
+  // formula pow(product, 1/n) and
+  // return the value to main function.
+  let gm = Math.pow(product, 1 / length);
+  return gm.toFixed(2);
 }
 
 export function calculateSampleVariance(values, mean, length) {

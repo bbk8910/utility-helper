@@ -39,6 +39,10 @@ export default function StaticResult(props) {
             <span className="detail-value">{result.median}</span>
           </div>
           <div>
+            <span>Mode</span>
+            <span className="detail-value">{mode}</span>
+          </div>
+          <div>
             <span>Largest</span>
             <span className="detail-value">{result.max}</span>
           </div>
@@ -52,23 +56,23 @@ export default function StaticResult(props) {
             <span className="detail-value">{result.range}</span>
           </div>
           <div>
-            <span>Geometric_Mean</span>
+            <span>Geometric Mean</span>
             <span className="detail-value">{result.geometricMean}</span>
           </div>
           <div>
-            <span>Variance</span>
+            <span>Population Variance</span>
             <span className="detail-value">{result.variance}</span>
           </div>
           <div>
-            <span>Standard Deviation</span>
+            <span>Population Standard Deviation</span>
             <span className="detail-value">{result.populationSD}</span>
           </div>
           <div>
-            <span>Sample_Variance</span>
+            <span>Sample Variance</span>
             <span className="detail-value">{result.sampleVariance}</span>
           </div>
           <div>
-            <span>Sample Standard_Deviation</span>
+            <span>Sample Standard Deviation</span>
             <span className="detail-value">{result.sampleSD}</span>
           </div>
         </div>

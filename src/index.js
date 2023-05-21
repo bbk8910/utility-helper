@@ -4,12 +4,26 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorker from "./sw";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@mui/material";
+
+// Create a new theme instance
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#897119", // Set the primary color
+    },
+    secondary: {
+      main: "#646669", // Set the secondary color
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <ThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>
+  </ThemeProvider>
 );
 serviceWorker.register();
 
