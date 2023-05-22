@@ -8,7 +8,11 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@mui/material";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 serviceWorker.register();
 
 // If you want to start measuring performance in your app, pass a function
