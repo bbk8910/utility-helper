@@ -6,7 +6,9 @@ const urlsToCache = [
   "/offline.html",
   "/manifest.json",
   "/logo.png",
-  "/static/js/bundle.js",
+  // "/static/js/bundle.js",
+  "/static/css/main.chunk.css",
+  "/static/js/main.chunk.js",
 
   // Add more URLs to cache as needed
 ];
