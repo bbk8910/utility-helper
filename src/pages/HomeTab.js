@@ -8,6 +8,7 @@ import EUnitCalculator from "../euc/EUnitCalculator";
 import { CURRENT_TAB_KEY } from "../constant/Constant";
 import Statics from "../statics/Statics";
 import { EmiCalculator } from "../emi/EmiCalculator";
+import Stock from "../stockanalyzer/Stock";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -65,22 +66,27 @@ export default function HomeTab(props) {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="E-Unit" value={1} />
-          <Tab label="Statics" value={2} />
-          <Tab label="EMI" value={3} />
-          <Tab label="Probability" value={4} />
+          <Tab label="Stock" value={1} />
+          <Tab label="E-Unit" value={2} />
+          <Tab label="Statics" value={3} />
+          <Tab label="EMI" value={4} />
+          <Tab label="Probability" value={5} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={1}>
-        <EUnitCalculator />
+        <Stock />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Statics />
+        <EUnitCalculator />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <EmiCalculator />
+        <Statics />
       </TabPanel>
       <TabPanel value={value} index={4}>
+        <EmiCalculator />
+      </TabPanel>
+
+      <TabPanel value={value} index={5}>
         <div>Comming soon...</div>
       </TabPanel>
     </Box>
