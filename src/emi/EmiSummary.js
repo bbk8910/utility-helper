@@ -3,6 +3,8 @@ import { Grid, Paper } from "@mui/material";
 import { useStyles } from "../constant/ThemeProvider";
 import { ServiceButton } from "../component/ServiceButton";
 import { Info } from "@material-ui/icons";
+import { EmiDetail } from "./EmiDetail";
+import { calculateEMIDetails } from "./EmiService";
 
 export default function EmiSummary(props) {
   const { emiResult, setEmiResult } = props;
@@ -13,6 +15,30 @@ export default function EmiSummary(props) {
     }));
   }
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  function handleClose() {
+    setOpen(false);
+  }
+  function handleOpen() {
+    loadDetail();
+    setOpen(true);
+  }
+  const [details, setDetails] = React.useState([]);
+
+  function loadDetail() {
+    console.log("emi details", emiResult);
+    // const details = await calculateEMIDetails(emiResult);
+
+    calculateEMIDetails(
+      emiResult.loanAmount,
+      emiResult.interestRate,
+      emiResult.loanPeriod
+    ).then((result) => {
+      console.log("details response", result);
+      setDetails(result);
+    });
+  }
 
   return (
     <Grid item xs={12}>
@@ -44,7 +70,7 @@ export default function EmiSummary(props) {
         </div>
         <div className="more-detail-btn">
           <ServiceButton
-            onClick={handleMoreDetail}
+            onClick={handleOpen}
             loading={true}
             color={"primary"}
             // name={"Details"}
@@ -54,6 +80,7 @@ export default function EmiSummary(props) {
             icon={<Info />}
           />
         </div>
+        <EmiDetail open={open} closeOpen={handleClose} details={details} />
       </Paper>
     </Grid>
   );

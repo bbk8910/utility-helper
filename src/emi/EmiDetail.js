@@ -7,93 +7,77 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
-import { Close } from "@mui/icons-material";
-import React, { useEffect } from "react";
-import { ServiceButton } from "../component/ServiceButton";
-import { calculateEMIDetails } from "./EmiService";
+import React from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import { DialogContentText } from "@material-ui/core";
+import { Button } from "@mui/material";
 export function EmiDetail(props) {
-  const { emiResult, setEmiResult } = props;
-  const [details, setDetails] = React.useState([]);
+  const { details, open, closeOpen } = props;
 
-  useEffect(() => {
-    loadDetail();
-  }, []);
-
-  function loadDetail() {
-    console.log("emi details", emiResult);
-    // const details = await calculateEMIDetails(emiResult);
-
-    calculateEMIDetails(
-      emiResult.loanAmount,
-      emiResult.interestRate,
-      emiResult.loanPeriod
-    ).then((result) => {
-      console.log("details response", result);
-      setDetails(result);
-    });
-    console.log("details---->", details);
-  }
-
-  function handleClose() {
-    setEmiResult((prevState) => ({
-      ...prevState,
-      enableMoreDetail: false,
-    }));
-  }
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow className={"table-head"}>
-            <TableCell align={"center"}>Month</TableCell>
-            <TableCell align="center" className={"table-head-cell"}>
-              Intrest
-            </TableCell>
-            <TableCell align="center" className={"table-head-cell"}>
-              Principal
-            </TableCell>
-            <TableCell align="center" className={"table-head-cell"}>
-              Total Payable
-            </TableCell>
-            <TableCell align="center" className={"table-head-cell"}>
-              Balance
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {details?.map((data) => {
-            return (
-              <TableRow>
-                <TableCell align="center">{data.month}</TableCell>
-                <TableCell align="center">
-                  {Number(data.interest)?.toLocaleString("en-IN")}
-                </TableCell>
-                <TableCell align="center">
-                  {Number(data.principal)?.toLocaleString("en-IN")}
-                </TableCell>
-                <TableCell align="center">
-                  {Number(data.totalPayable)?.toLocaleString("en-IN")}
-                </TableCell>
-                <TableCell align="center">
-                  {" "}
-                  {Number(data.balance)?.toLocaleString("en-IN")}
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-
-      <div className="more-detail-btn">
-        <ServiceButton
-          onClick={handleClose}
-          loading={true}
-          color={"error"}
-          name={"Close"}
-          type={"submit"}
-          icon={<Close />}
-        />
-      </div>
-    </TableContainer>
+    <Dialog
+      open={open}
+      onClose={closeOpen}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      maxWidth={1000}
+    >
+      <DialogTitle id="alert-dialog-title">Stock Detail</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow className={"table-header"}>
+                  <TableCell align={"center"}>Month</TableCell>
+                  <TableCell align="center" className={"table-header"}>
+                    Intrest
+                  </TableCell>
+                  <TableCell align="center" className={"table-header"}>
+                    Principal
+                  </TableCell>
+                  <TableCell align="center" className={"table-header"}>
+                    Total Payable
+                  </TableCell>
+                  <TableCell align="center" className={"table-header"}>
+                    Balance
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {details?.map((data) => {
+                  return (
+                    <TableRow>
+                      <TableCell align="center">{data.month}</TableCell>
+                      <TableCell align="center">
+                        {Number(data.interest)?.toLocaleString("en-IN")}
+                      </TableCell>
+                      <TableCell align="center">
+                        {Number(data.principal)?.toLocaleString("en-IN")}
+                      </TableCell>
+                      <TableCell align="center">
+                        {Number(data.totalPayable)?.toLocaleString("en-IN")}
+                      </TableCell>
+                      <TableCell align="center">
+                        {" "}
+                        {Number(data.balance)?.toLocaleString("en-IN")}
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={closeOpen} autoFocus>
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }

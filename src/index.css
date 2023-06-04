@@ -130,6 +130,9 @@ code {
   max-width: 50%;
   width: 35%;
 }
+.table-header {
+  background: #d3d3d370;
+}
 
 @media only screen and (max-width: 768px) {
   .display-flex {

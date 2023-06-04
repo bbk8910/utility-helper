@@ -20,7 +20,6 @@ export default function Stock(props) {
   }
   return (
     <Box className="page-wrapper">
-      {" "}
       <AddRawStockDataForm
         formData={formData}
         onActionComplete={getStocksMap}
