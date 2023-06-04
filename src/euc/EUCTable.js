@@ -89,7 +89,7 @@ export default function EUCTable(props) {
   const visibleRows = [...dataList].slice(startIndex, endIndex);
 
   return (
-    <Box component={Paper}>
+    <Box>
       <DataGrid
         rows={visibleRows}
         columns={columns}

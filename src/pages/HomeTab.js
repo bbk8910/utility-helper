@@ -65,6 +65,8 @@ export default function HomeTab(props) {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          variant="scrollable"
+          scrollButtons
         >
           <Tab label="Stock" value={1} />
           <Tab label="E-Unit" value={2} />

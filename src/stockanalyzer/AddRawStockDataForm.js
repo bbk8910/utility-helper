@@ -9,7 +9,7 @@ import {
   Box,
 } from "@material-ui/core";
 
-import { Cancel, PlusOneSharp, Save } from "@material-ui/icons";
+import { Cancel, ClearAll, PlusOneSharp, Save } from "@material-ui/icons";
 import { Autocomplete, Stack } from "@mui/material";
 
 import { useForm } from "react-hook-form";
@@ -583,12 +583,19 @@ export default function AddRawStockDataForm(props) {
                 className={classes.button}
                 onClick={handleSubmit}
                 loading={loading}
+                color={"primary"}
+                type={"submit"}
                 name={"save"}
                 icon={<Save />}
               />
-              <Button variant="outlined" type="reset">
-                Reset
-              </Button>
+              <ServiceButton
+                className={classes.button}
+                color={""}
+                variant="outlined"
+                type="reset"
+                name={"Reset"}
+                icon={<ClearAll sx={{ mr: 1 }} />}
+              />
             </Stack>
           </Grid>
           <MySnackBar

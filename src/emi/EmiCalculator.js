@@ -25,14 +25,14 @@ export function EmiCalculator(prps) {
 
   return (
     <Box className="page-wrapper">
-      <div className="emi-form">
+      <div className="lead-form">
         <EmiForm
           setEmiResult={setEmiResult}
           snackBarController={snackBarController}
           setSnackBarController={setSnackBarController}
         />
       </div>
-      <div className="emi-summary">
+      <div className="adjust-view">
         <EmiSummary emiResult={emiResult} setEmiResult={setEmiResult} />
       </div>
     </Box>

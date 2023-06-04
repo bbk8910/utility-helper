@@ -80,7 +80,7 @@ export default function EUnitCalculator(prosp) {
           onActionCompleted={onActionCompleted}
         />
       </div>
-      <div className="eu-table">
+      <div className="my-view">
         <MyTable
           columns={columns}
           dataList={dataList}

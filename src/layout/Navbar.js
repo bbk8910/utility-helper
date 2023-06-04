@@ -16,12 +16,10 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(false);
 
   return (
-    <AppBar position="sticky">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <div class="logo">
-            <img src={`${process.env.PUBLIC_URL}/logo.png`} />
-          </div>
+    <nav>
+      <div className="nav-inner">
+        <div class="logo">
+          <img src={`${process.env.PUBLIC_URL}/logo.png`} />
 
           <Typography
             variant="h6"
@@ -40,9 +38,9 @@ function Navbar() {
           >
             UTILITY HELPER
           </Typography>
-        </Toolbar>
-      </Container>
-    </AppBar>
+        </div>
+      </div>
+    </nav>
   );
 }
 export default Navbar;

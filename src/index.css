@@ -6,13 +6,34 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e7ebf0;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+nav {
+  background: rgba(74, 144, 226, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+}
+.nav-inner {
+  max-width: 1536px;
+  margin: auto;
+}
 
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
 .logo img {
   height: 40px;
 }
@@ -37,13 +58,6 @@ code {
   /* align-items: center; */
 }
 
-.my-form {
-  max-width: 40%;
-}
-
-.eu-table {
-  width: 55%;
-}
 .span-key {
   font-weight: 600;
 }
@@ -53,9 +67,6 @@ code {
 
 .center-div {
   margin: auto;
-}
-
-.static-wrapper {
 }
 
 .static-form {
@@ -112,23 +123,38 @@ code {
   flex-basis: 30%;
 }
 
-.emi-form {
-  max-width: 65%;
-  width: 65%;
+.my-form {
+  max-width: 40%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 15px;
+  height: fit-content;
 }
-.emi-summary {
-  max-width: 50%;
-  width: 35%;
+.my-view {
+  max-width: 60%;
+  width: 60%;
 }
 
 /* -------statics---------- */
-.static-form {
-  max-width: 65%;
-  width: 65%;
+.lead-form {
+  max-width: 60%;
+  width: 60%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: fit-content;
+  padding: 15px;
 }
-.static-table {
-  max-width: 50%;
-  width: 35%;
+.adjust-view {
+  max-width: 40%;
+  width: 40%;
 }
 .table-header {
   background: #d3d3d370;
@@ -146,33 +172,20 @@ code {
   }
 
   .my-form {
-    width: 100%;
     max-width: 100%;
   }
 
-  .eu-table {
+  .my-view {
     width: 100%;
     max-width: 100%;
     margin-top: 20px;
   }
 
-  .emi-form {
-    width: 100%;
+  .lead-form {
     max-width: 100%;
   }
 
-  .emi-summary {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 20px;
-  }
-
-  /* -------statics---------- */
-  .static-form {
-    width: 100%;
-    max-width: 100%;
-  }
-  .static-table {
+  .adjust-view {
     width: 100%;
     max-width: 100%;
     margin-top: 20px;
