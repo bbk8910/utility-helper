@@ -18,7 +18,6 @@ nav {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: sticky;
   top: 0;
@@ -125,14 +124,14 @@ nav {
 
 .my-form {
   max-width: 40%;
+  padding: 15px;
+  height: fit-content;
   background: rgb(255, 255, 255);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 15px;
-  height: fit-content;
 }
 .my-view {
   max-width: 60%;
@@ -143,14 +142,14 @@ nav {
 .lead-form {
   max-width: 60%;
   width: 60%;
+  height: fit-content;
+  padding: 15px;
   background: rgb(255, 255, 255);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  height: fit-content;
-  padding: 15px;
 }
 .adjust-view {
   max-width: 40%;
@@ -182,7 +181,7 @@ nav {
   }
 
   .lead-form {
-    max-width: 100%;
+    min-width: 90%;
   }
 
   .adjust-view {

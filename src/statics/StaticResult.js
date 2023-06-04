@@ -17,66 +17,64 @@ export default function StaticResult(props) {
 
   return (
     <Grid item xs={12}>
-      <Paper className={classes.paper}>
-        <div className={"emi-summary-info-head-txt"}>
-          <span>STATICS RESULT </span>
+      <div className={"emi-summary-info-head-txt"}>
+        <span>STATICS RESULT </span>
+      </div>
+      <div className={"emi-summary-info-txt"}>
+        <div>
+          <span>Count</span>
+          <span className="detail-value"> {result.count}</span>
         </div>
-        <div className={"emi-summary-info-txt"}>
-          <div>
-            <span>Count</span>
-            <span className="detail-value"> {result.count}</span>
-          </div>
-          <div>
-            <span>sum</span>
-            <span className="detail-value"> {result.sum}</span>
-          </div>
-          <div>
-            <span>Mean(Average)</span>
-            <span className="detail-value"> {result.mean}</span>
-          </div>
-          <div>
-            <span>Median</span>
-            <span className="detail-value">{result.median}</span>
-          </div>
-          <div>
-            <span>Mode</span>
-            <span className="detail-value">{mode}</span>
-          </div>
-          <div>
-            <span>Largest</span>
-            <span className="detail-value">{result.max}</span>
-          </div>
-          <div>
-            <span>Smallest</span>
-            <span className="detail-value">{result.min}</span>
-          </div>
+        <div>
+          <span>sum</span>
+          <span className="detail-value"> {result.sum}</span>
+        </div>
+        <div>
+          <span>Mean(Average)</span>
+          <span className="detail-value"> {result.mean}</span>
+        </div>
+        <div>
+          <span>Median</span>
+          <span className="detail-value">{result.median}</span>
+        </div>
+        <div>
+          <span>Mode</span>
+          <span className="detail-value">{mode}</span>
+        </div>
+        <div>
+          <span>Largest</span>
+          <span className="detail-value">{result.max}</span>
+        </div>
+        <div>
+          <span>Smallest</span>
+          <span className="detail-value">{result.min}</span>
+        </div>
 
-          <div>
-            <span>Range</span>
-            <span className="detail-value">{result.range}</span>
-          </div>
-          <div>
-            <span>Geometric Mean</span>
-            <span className="detail-value">{result.geometricMean}</span>
-          </div>
-          <div>
-            <span>Population Variance</span>
-            <span className="detail-value">{result.variance}</span>
-          </div>
-          <div>
-            <span>Population Standard Deviation</span>
-            <span className="detail-value">{result.populationSD}</span>
-          </div>
-          <div>
-            <span>Sample Variance</span>
-            <span className="detail-value">{result.sampleVariance}</span>
-          </div>
-          <div>
-            <span>Sample Standard Deviation</span>
-            <span className="detail-value">{result.sampleSD}</span>
-          </div>
+        <div>
+          <span>Range</span>
+          <span className="detail-value">{result.range}</span>
         </div>
-      </Paper>
+        <div>
+          <span>Geometric Mean</span>
+          <span className="detail-value">{result.geometricMean}</span>
+        </div>
+        <div>
+          <span>Population Variance</span>
+          <span className="detail-value">{result.variance}</span>
+        </div>
+        <div>
+          <span>Population Standard Deviation</span>
+          <span className="detail-value">{result.populationSD}</span>
+        </div>
+        <div>
+          <span>Sample Variance</span>
+          <span className="detail-value">{result.sampleVariance}</span>
+        </div>
+        <div>
+          <span>Sample Standard Deviation</span>
+          <span className="detail-value">{result.sampleSD}</span>
+        </div>
+      </div>
     </Grid>
   );
 }
