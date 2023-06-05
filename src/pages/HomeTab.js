@@ -68,10 +68,11 @@ export default function HomeTab(props) {
           variant="scrollable"
           scrollButtons
         >
-          <Tab label="Stock" value={1} />
+          {" "}
+          <Tab label="EMI" value={4} />
           <Tab label="E-Unit" value={2} />
           <Tab label="Statics" value={3} />
-          <Tab label="EMI" value={4} />
+          <Tab label="Stock" value={1} />
           <Tab label="Probability" value={5} />
         </Tabs>
       </Box>

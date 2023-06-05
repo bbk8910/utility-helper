@@ -22,4 +22,9 @@ export const useStyles = makeStyles((theme) => ({
   item: {
     padding: theme.spacing(2),
   },
+  stickyButton: {
+    position: "sticky",
+    top: theme.spacing(2), // Adjust the top value as per your requirement
+    zIndex: theme.zIndex.drawer + 1, // Ensure the button is above other elements
+  },
 }));

@@ -14,8 +14,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import { DialogContentText } from "@material-ui/core";
 import { Button } from "@mui/material";
+import Navbar from "../layout/Navbar";
+import { useStyles } from "../constant/ThemeProvider";
 export function EmiDetail(props) {
   const { details, open, closeOpen } = props;
+  const classes = useStyles();
 
   return (
     <Dialog
@@ -24,7 +27,9 @@ export function EmiDetail(props) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       maxWidth={1000}
+      fullScreen={true}
     >
+      <Navbar />
       <DialogTitle id="alert-dialog-title">Stock Detail</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
@@ -40,7 +45,7 @@ export function EmiDetail(props) {
                     Principal
                   </TableCell>
                   <TableCell align="center" className={"table-header"}>
-                    Total Payable
+                    Total_Payable
                   </TableCell>
                   <TableCell align="center" className={"table-header"}>
                     Balance
@@ -74,7 +79,7 @@ export function EmiDetail(props) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeOpen} autoFocus>
+        <Button onClick={closeOpen} autoFocus className={classes.stickyButton}>
           Close
         </Button>
       </DialogActions>
