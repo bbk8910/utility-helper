@@ -240,8 +240,12 @@ export default function StockTable(props) {
       <DataGrid
         rows={[...dataList]}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 10 },
+          },
+        }}
+        rowsPerPageOptions={[5, 10, 20, 50, 100]}
         checkboxSelection
         components={{
           Toolbar: CustomToolbar,
