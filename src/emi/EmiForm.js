@@ -41,7 +41,7 @@ export function EmiForm(props) {
     <Box>
       <form onSubmit={handleSubmit(calcualteResult)}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
             <TextField
               id="formatted-numberformat-input"
               variant="outlined"
@@ -68,7 +68,7 @@ export function EmiForm(props) {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
             <TextField
               id="formatted-numberformat-input"
               variant="outlined"

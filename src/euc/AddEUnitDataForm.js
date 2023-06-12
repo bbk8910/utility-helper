@@ -95,7 +95,7 @@ export default function AddEUnitDataForm(props) {
     <Box>
       <form onSubmit={handleSubmit(save)}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
             <TextField
               id="formatted-numberformat-input"
               variant="outlined"

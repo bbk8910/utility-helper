@@ -9,6 +9,7 @@ import { CURRENT_TAB_KEY } from "../constant/Constant";
 import Statics from "../statics/Statics";
 import { EmiCalculator } from "../emi/EmiCalculator";
 import Stock from "../stockanalyzer/Stock";
+import { RentTrackerPage } from "../renttracker/RentTrackerPage";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,15 +65,16 @@ export default function HomeTab(props) {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          centered={true}
           variant="scrollable"
-          scrollButtons
+          scrollButtons="auto"
         >
           {" "}
           <Tab label="EMI" value={4} />
           <Tab label="E-Unit" value={2} />
           <Tab label="Statics" value={3} />
           <Tab label="Stock" value={1} />
+          <Tab label="Rent-Tracker" value={6} />
           <Tab label="Probability" value={5} />
         </Tabs>
       </Box>
@@ -91,6 +93,10 @@ export default function HomeTab(props) {
 
       <TabPanel value={value} index={5}>
         <div>Comming soon...</div>
+      </TabPanel>
+
+      <TabPanel value={value} index={6}>
+        <RentTrackerPage />
       </TabPanel>
     </Box>
   );

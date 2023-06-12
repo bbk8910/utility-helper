@@ -1,9 +1,20 @@
+import {
+  RT_CONFIG_STORE_NAME,
+  RT_STORE_NAME,
+} from "../renttracker/RentTrackerService";
+
 const DB_NAME = "utilityDB";
 const DB_VERSION = 1;
 
 export const E_UNIT_STORE = "eUnitStore";
 
-const storeList = [E_UNIT_STORE, "hello"]; // List of stores to create
+const storeMap = new Map();
+storeMap.set(E_UNIT_STORE, { indexList: null, autoIncrement: true }); //key is store name and value is index field
+storeMap.set(RT_STORE_NAME, { indexList: ["year"], autoIncrement: true });
+storeMap.set(RT_CONFIG_STORE_NAME, {
+  indexList: null,
+  autoIncrement: false,
+});
 
 const getDB = () => {
   return new Promise((resolve, reject) => {
@@ -15,13 +26,19 @@ const getDB = () => {
 
     request.onupgradeneeded = function (event) {
       const db = event.target.result;
-      storeList.forEach((storeName) => {
-        if (!db.objectStoreNames.contains(storeName)) {
+      Array.from(storeMap).map(([key, value]) => {
+        if (!db.objectStoreNames.contains(key)) {
           // Check if store exists
-          db.createObjectStore(storeName, {
+          const objectStore = db.createObjectStore(key, {
             keyPath: "id",
-            autoIncrement: true,
+            autoIncrement: value.autoIncrement,
           });
+          Array.of(value?.indexList)?.forEach((data) => {
+            objectStore.createIndex(data + "_index", data, {
+              unique: false,
+            });
+          });
+          console.log("Created Store name  ", key);
         }
       });
     };
@@ -33,13 +50,23 @@ const getDB = () => {
   });
 };
 
-export async function saveData(object, storeName) {
+export function saveData(object, storeName) {
   console.log("Saving object: {}", object);
 
   if (object && object.id) {
     return updateData(storeName, object.id, object);
   }
   return addData(object, storeName);
+}
+
+export async function saveDataWithId(object, storeName) {
+  console.log("Saving object: {}", object);
+  let dbObj = await getDataById(object.id, storeName);
+  if (dbObj) {
+    updateData(storeName, object.id, object);
+  } else {
+    return addData(object, storeName);
+  }
 }
 
 function addData(object, storeName) {
@@ -109,14 +136,15 @@ export function getDataById(key, storeName) {
         const getRequest = objectStore.get(key);
 
         getRequest.onerror = function (event) {
-          reject(new Error("Error getting object", event.target.errorCode));
+          console.log("Error getting object", event);
+          resolve(null);
         };
 
         getRequest.onsuccess = function (event) {
           resolve(event.target.result);
         };
       })
-      .catch((error) => reject(error));
+      .catch((error) => resolve(null));
   });
 }
 
@@ -160,5 +188,67 @@ export function deleteData(storeName, idList) {
           });
       })
       .catch((error) => reject(`Error getting database: ${error}`));
+  });
+}
+
+export function findDataByFieldName(fieldName, fieldValue, storeName) {
+  fieldName = fieldName + "_index";
+  return new Promise((resolve, reject) => {
+    getDB()
+      .then((db) => {
+        console.log("FieldName, FieldValue", fieldName, fieldValue);
+        const transaction = db.transaction([storeName], "readonly");
+        const objectStore = transaction.objectStore(storeName);
+        const index = objectStore.index(fieldName);
+        const request = index.get(fieldValue);
+        console.log("index id requet", request);
+
+        request.onsuccess = function (event) {
+          const result = event.target.result;
+          resolve(result); // Resolve with the retrieved data
+        };
+
+        request.onerror = function (event) {
+          reject(request.error); // Reject with the error
+        };
+      })
+      .catch((error) => reject(error));
+  });
+}
+
+export function getDataByIndexID(indexID, fieldValue, storeName) {
+  indexID = indexID + "_index";
+  return new Promise((resolve, reject) => {
+    getDB()
+      .then((db) => {
+        const transaction = db.transaction([storeName], "readonly");
+        const objectStore = transaction.objectStore(storeName);
+        const index = objectStore.index(indexID); // Assuming the index is named "id"
+        console.log("index", index);
+        const request = index.openCursor();
+        console.log("request", request);
+
+        const dataList = [];
+
+        request.onsuccess = function (event) {
+          const cursor = event.target.result;
+          if (cursor) {
+            dataList.push(cursor.value);
+            // if (cursor.key === fieldValue) {
+            //   // Compare with fieldValue, not indexID
+            //   // Match the index ID and field value
+            //   dataList.push(cursor.value);
+            // }
+            cursor.continue();
+          } else {
+            resolve(dataList); // Resolve with the list of matched data
+          }
+        };
+
+        request.onerror = function (event) {
+          reject(request.error); // Reject with the error
+        };
+      })
+      .catch((error) => reject(error));
   });
 }
