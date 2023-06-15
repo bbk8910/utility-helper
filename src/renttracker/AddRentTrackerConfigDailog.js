@@ -39,6 +39,7 @@ export function AddRentConfigDailogue(props) {
     saveConfig(obj).then((response) => {
       onActionCompleted();
       closeOpen();
+      window.location.reload();
     });
   }
 

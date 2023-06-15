@@ -21,6 +21,7 @@ import { Chip, CircularProgress, IconButton } from "@mui/material";
 import { AddRentConfigDailogue } from "./AddRentTrackerConfigDailog";
 import { useConfirm } from "material-ui-confirm";
 import { Link } from "react-router-dom";
+import { get } from "react-hook-form";
 
 export function RentTrackerPage(props) {
   const currentNepaliDate = getCurrentNepaliDate();
@@ -61,7 +62,7 @@ export function RentTrackerPage(props) {
         console.log("current year map", currentYearMap);
         setTimeout(() => {
           setLoadingList(false);
-        }, 2000);
+        }, 1000);
       })
       .catch((error) => {
         setLoadingList(false);
@@ -85,8 +86,7 @@ export function RentTrackerPage(props) {
         reqObj.settledDate = nepaliDate;
         reqObj.month = month;
         saveRentTracker(reqObj).then(() => {
-          currentYearMap.set(month, reqObj);
-          setCurrentYearMap(new Map(currentYearMap));
+          window.location.reload();
         });
       })
       .catch(() => console.log("Deletion cancelled."));
