@@ -73,14 +73,14 @@ export default function EUnitCalculator(prosp) {
 
   return (
     <Box className="page-wrapper">
-      <div className="my-form">
+      <div className="page-form">
         <AddEUnitDataForm
           formData={formData}
           setFormData={setFormData}
           onActionCompleted={onActionCompleted}
         />
       </div>
-      <div className="my-view">
+      <div className="page-view">
         <MyTable
           columns={columns}
           dataList={dataList}

@@ -60,7 +60,7 @@ export default function Statics(props) {
   }
   return (
     <div className="page-wrapper">
-      <div className="lead-form">
+      <div className="page-form">
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -77,7 +77,7 @@ export default function Statics(props) {
             placeholder="Enter your data set  eg: 1, 2, 3"
             name="staticsData"
             required
-            style={{ width: "100%", minHeight: "475px" }}
+            style={{ width: "100%", minHeight: "275px" }}
           />
 
           <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
@@ -100,7 +100,7 @@ export default function Statics(props) {
           </Stack>
         </form>
       </div>
-      <div className="adjust-view">
+      <div className="page-view">
         <StaticResult result={result} />
       </div>
     </div>

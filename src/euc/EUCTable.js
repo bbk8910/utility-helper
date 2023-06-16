@@ -24,7 +24,7 @@ export default function EUCTable(props) {
 
   const [selectedIds, setSelectionModel] = useState([]);
   const [page, setPage] = useState(1);
-  const pageSize = 8;
+  const pageSize = 5;
 
   function CustomToolbar() {
     return (

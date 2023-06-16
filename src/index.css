@@ -43,15 +43,11 @@ nav {
 }
 
 .page-wrapper {
-  display: flex;
-  gap: 20px;
-  max-width: 1500px;
   margin: auto;
-  justify-content: space-around;
 }
 
 .tab-wrapper {
-  max-width: 1500px;
+  max-width: 500px;
   margin: auto;
   padding: 0px;
   /* align-items: center; */
@@ -172,6 +168,10 @@ nav {
 .rt-action {
   display: flex;
   gap: 10px;
+}
+
+.page-view {
+  margin-top: 20px;
 }
 @media only screen and (max-width: 768px) {
   .display-flex {

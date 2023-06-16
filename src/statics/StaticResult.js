@@ -23,56 +23,56 @@ export default function StaticResult(props) {
       <div className={"emi-summary-info-txt"}>
         <div>
           <span>Count</span>
-          <span className="detail-value"> {result.count}</span>
+          <span className="detail-value"> {result.count || "--"}</span>
         </div>
         <div>
           <span>sum</span>
-          <span className="detail-value"> {result.sum}</span>
+          <span className="detail-value"> {result.sum || "--"}</span>
         </div>
         <div>
           <span>Mean(Average)</span>
-          <span className="detail-value"> {result.mean}</span>
+          <span className="detail-value"> {result.mean || "--"}</span>
         </div>
         <div>
           <span>Median</span>
-          <span className="detail-value">{result.median}</span>
+          <span className="detail-value">{result.median || "--"}</span>
         </div>
         <div>
           <span>Mode</span>
-          <span className="detail-value">{mode}</span>
+          <span className="detail-value">{mode || "--"}</span>
         </div>
         <div>
           <span>Largest</span>
-          <span className="detail-value">{result.max}</span>
+          <span className="detail-value">{result.max || "--"}</span>
         </div>
         <div>
           <span>Smallest</span>
-          <span className="detail-value">{result.min}</span>
+          <span className="detail-value">{result.min || "--"}</span>
         </div>
 
         <div>
           <span>Range</span>
-          <span className="detail-value">{result.range}</span>
+          <span className="detail-value">{result.range || "--"}</span>
         </div>
         <div>
           <span>Geometric Mean</span>
-          <span className="detail-value">{result.geometricMean}</span>
+          <span className="detail-value">{result.geometricMean || "--"}</span>
         </div>
         <div>
           <span>Population Variance</span>
-          <span className="detail-value">{result.variance}</span>
+          <span className="detail-value">{result.variance || "--"}</span>
         </div>
         <div>
           <span>Population Standard Deviation</span>
-          <span className="detail-value">{result.populationSD}</span>
+          <span className="detail-value">{result.populationSD || "--"}</span>
         </div>
         <div>
           <span>Sample Variance</span>
-          <span className="detail-value">{result.sampleVariance}</span>
+          <span className="detail-value">{result.sampleVariance || "--"}</span>
         </div>
         <div>
           <span>Sample Standard Deviation</span>
-          <span className="detail-value">{result.sampleSD}</span>
+          <span className="detail-value">{result.sampleSD || "--"}</span>
         </div>
       </div>
     </Grid>

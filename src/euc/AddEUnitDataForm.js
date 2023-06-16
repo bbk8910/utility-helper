@@ -159,7 +159,7 @@ export default function AddEUnitDataForm(props) {
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ marginTop: 2, marginBottom: 2 }}>
             <Stack direction="row" spacing={1}>
               <ServiceButton
                 className={classes.button}

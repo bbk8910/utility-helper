@@ -20,14 +20,14 @@ export default function Stock(props) {
   }
   return (
     <Box className="page-wrapper">
-      <div className="my-form">
+      <div className="page-form">
         <AddRawStockDataForm
           formData={formData}
           onActionComplete={getStocksMap}
           setFormData={setFormData}
         />
       </div>
-      <div className="my-view">
+      <div className="page-view">
         <StockTable
           stockMap={stockMap}
           setFormData={setFormData}
