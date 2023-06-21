@@ -12,7 +12,6 @@ import {
   neplaiMonthNameMap,
   getCurrentYearData,
   saveRentTracker,
-  getFormatNepaliDate,
   yearMap,
   loadConfig,
   getFormaedBSDate,
@@ -21,14 +20,22 @@ import { Box, Paper } from "@material-ui/core";
 import { Chip, CircularProgress, IconButton } from "@mui/material";
 import { AddRentConfigDailogue } from "./AddRentTrackerConfigDailog";
 import { useConfirm } from "material-ui-confirm";
-import { Link } from "react-router-dom";
-import { get } from "react-hook-form";
+import { RTHistory } from "./RTHistory";
 
 export function RentTrackerPage(props) {
   const currentNepaliDate = getCurrentNepaliDate();
   const [currentYearMap, setCurrentYearMap] = React.useState(yearMap);
   const [formData, setFormData] = React.useState({});
   const [loadingList, setLoadingList] = React.useState(false);
+  const [showHistory, setShowHistory] = React.useState(false);
+
+  function handleShowHistory() {
+    setShowHistory(true);
+  }
+
+  function handleCloseHistory() {
+    setShowHistory(false);
+  }
   const confirm = useConfirm();
 
   useEffect(() => {
@@ -140,9 +147,11 @@ export function RentTrackerPage(props) {
   return (
     <Box className="page-wrapper">
       {loadingList ? (
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex" }} className="page-wrapper">
           <CircularProgress />
         </Box>
+      ) : showHistory ? (
+        <RTHistory handleCloseHistory={handleCloseHistory} />
       ) : (
         <Box>
           <List
@@ -151,11 +160,14 @@ export function RentTrackerPage(props) {
             <div className="rt-head">
               <Typography>{`Rent Tracker of ${currentNepaliDate?.year}`}</Typography>
               <div className="rt-action">
-                <Link to="/utility-helper/rt/history">
-                  <IconButton edge="end" aria-label="comments">
-                    <History />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  edge="end"
+                  aria-label="comments"
+                  onClick={handleShowHistory}
+                >
+                  <History handleCloseHistory={handleCloseHistory} />
+                </IconButton>
+
                 <IconButton
                   edge="end"
                   aria-label="comments"
