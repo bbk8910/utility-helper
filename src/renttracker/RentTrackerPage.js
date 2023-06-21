@@ -15,6 +15,7 @@ import {
   getFormatNepaliDate,
   yearMap,
   loadConfig,
+  getFormaedBSDate,
 } from "./RentTrackerService";
 import { Box, Paper } from "@material-ui/core";
 import { Chip, CircularProgress, IconButton } from "@mui/material";
@@ -31,6 +32,7 @@ export function RentTrackerPage(props) {
   const confirm = useConfirm();
 
   useEffect(() => {
+    console.log("Current yer date", currentNepaliDate);
     loadCurrentYearData();
     loadConfigData();
   }, []);
@@ -76,7 +78,7 @@ export function RentTrackerPage(props) {
   }
 
   function handleSettlement(month, reqObj) {
-    const nepaliDate = getFormatNepaliDate();
+    const nepaliDate = getFormaedBSDate();
     confirm({
       description: `Settlement of ${neplaiMonthNameMap.get(month)}`,
     })
@@ -113,17 +115,15 @@ export function RentTrackerPage(props) {
   }
 
   function getStickyReminder() {
-    const month = currentNepaliDate.month;
+    const month = currentNepaliDate.monthIndex;
     const currMonthMapVal = currentYearMap.get(month);
-    console.log("curr month", currMonthMapVal);
+    console.log("curr month---", currMonthMapVal, month);
 
     if (currMonthMapVal && !currMonthMapVal.settled) {
       return (
         <Box className="buttom-sticky" component={Paper} flex={true}>
           <Typography sx={{ p: 2 }}>
-            {`Pending Settlement of ${neplaiMonthNameMap.get(
-              currentNepaliDate.month
-            )}  `}
+            {`Pending Settlement of ${neplaiMonthNameMap.get(month)}  `}
             <Chip
               label={currMonthMapVal?.settled ? "Settled" : "Settle"}
               disabled={currMonthMapVal?.settled}

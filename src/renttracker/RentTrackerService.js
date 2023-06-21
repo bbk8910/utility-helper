@@ -24,21 +24,22 @@ export const setting = {
 const rtConfigKey = "rtc";
 
 const dateMap = new Map();
-dateMap.set(1, "Baisakh");
-dateMap.set(2, "Jestha");
-dateMap.set(3, "Ashad");
-dateMap.set(4, "Shrawan");
-dateMap.set(5, "Bhadra");
-dateMap.set(6, "Ashoj");
-dateMap.set(7, "Kartik");
-dateMap.set(8, "Mangsir");
-dateMap.set(9, "Poush");
-dateMap.set(10, "Magh");
-dateMap.set(11, "Falgun");
-dateMap.set(12, "Chaitra");
+dateMap.set(0, "Baisakh");
+dateMap.set(1, "Jestha");
+dateMap.set(2, "Ashad");
+dateMap.set(3, "Shrawan");
+dateMap.set(4, "Bhadra");
+dateMap.set(5, "Ashoj");
+dateMap.set(6, "Kartik");
+dateMap.set(7, "Mangsir");
+dateMap.set(8, "Poush");
+dateMap.set(9, "Magh");
+dateMap.set(10, "Falgun");
+dateMap.set(11, "Chaitra");
 export const neplaiMonthNameMap = dateMap;
 
 const currentYearMap = new Map();
+currentYearMap.set(0, entity);
 currentYearMap.set(1, entity);
 currentYearMap.set(2, entity);
 currentYearMap.set(3, entity);
@@ -50,13 +51,26 @@ currentYearMap.set(8, entity);
 currentYearMap.set(9, entity);
 currentYearMap.set(10, entity);
 currentYearMap.set(11, entity);
-currentYearMap.set(12, entity);
 export const yearMap = currentYearMap;
 
 export function getCurrentNepaliDate() {
   const currentDate = new Date();
-  var npDate = NepaliDateConverter.fromAD(currentDate).getBS();
-  return npDate;
+
+  var obj = NepaliDateConverter.now();
+  const symbols = Object.getOwnPropertySymbols(obj);
+  const year = obj[symbols[0]];
+  const monthIndex = obj[symbols[1]];
+  const date = obj[symbols[2]];
+  const day = obj[symbols[3]];
+  const result = { year: year, monthIndex: monthIndex, date: date };
+  return result;
+}
+
+export function getFormaedBSDate() {
+  const npDate = getCurrentNepaliDate();
+  return (
+    dateMap.get(npDate.monthIndex) + " " + npDate.date + ", " + npDate.year
+  );
 }
 export function loadConfig() {
   return getDataById(rtConfigKey, RT_CONFIG_STORE_NAME);
@@ -82,8 +96,4 @@ export function getSetting() {}
 export function getFormatNepaliDate() {
   const date = getCurrentNepaliDate();
   return date.year + "-" + date.month + "-" + date.date;
-}
-
-export function formatNepaliDate(obj) {
-  return obj.year + "-" + obj.month + "-" + obj.date;
 }
