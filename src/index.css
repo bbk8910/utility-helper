@@ -24,6 +24,10 @@ nav {
   z-index: 1;
   text-align: left;
 }
+
+.red-text {
+  color: red;
+}
 .nav-inner {
   max-width: 1536px;
   margin: auto;

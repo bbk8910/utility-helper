@@ -10,6 +10,7 @@ import Statics from "../statics/Statics";
 import { EmiCalculator } from "../emi/EmiCalculator";
 import Stock from "../stockanalyzer/Stock";
 import { RentTrackerPage } from "../renttracker/RentTrackerPage";
+import { GrowthCalculator } from "../growth/GrowthCalculator";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,6 +76,7 @@ export default function HomeTab(props) {
           <Tab label="Statics" value={3} />
           <Tab label="Stock" value={1} />
           <Tab label="Rent-Tracker" value={6} />
+          <Tab label="Growth" value={7} />
           <Tab label="Probability" value={5} />
         </Tabs>
       </Box>
@@ -97,6 +99,10 @@ export default function HomeTab(props) {
 
       <TabPanel value={value} index={6}>
         <RentTrackerPage />
+      </TabPanel>
+
+      <TabPanel value={value} index={7}>
+        <GrowthCalculator />
       </TabPanel>
     </Box>
   );
