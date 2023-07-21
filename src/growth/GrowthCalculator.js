@@ -65,7 +65,6 @@ export function GrowthCalculator(props) {
                 type: "number",
                 step: ".01",
                 min: 0,
-                max: 1000000000,
               }}
               InputLabelProps={{
                 shrink: true,
@@ -91,7 +90,6 @@ export function GrowthCalculator(props) {
                 type: "number",
                 step: ".01",
                 min: 0,
-                max: 1000000000,
               }}
               InputLabelProps={{
                 shrink: true,
