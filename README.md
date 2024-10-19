@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### `Github deployment steps` fails to minify
 ### 1.Install the gh-pages npm package: npm install gh-pages --save-dev
 ### 2.commit and push
-### 3.npm run deploy
+### 3.npm run deploy=> this will build npm project and push to github's gh-pages branch
 
 
 
