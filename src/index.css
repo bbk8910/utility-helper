@@ -14,24 +14,39 @@ code {
     monospace;
 }
 nav {
-  background: rgba(74, 144, 226, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  /*background: rgba(74, 144, 226, 0.6);*/
+  /*box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);*/
+  /*backdrop-filter: blur(20px);*/
+  /*-webkit-backdrop-filter: blur(20px);*/
+  /*border: 1px solid rgba(255, 255, 255, 0.18);*/
+  /*position: sticky;*/
+  margin-top: 1.5rem;
+  margin-bottom: 10px;
+  /*z-index: 1;*/
+  /*text-align: left;*/
   text-align: left;
+}
+
+.navbar {
+  position: fixed;
+  top: 0; /* Stick to the top */
+  z-index: 10; /* Ensure it is above other content */
+  background-color: white; /* Set a background color to avoid transparency issues */
+}
+
+.date-time-card {
+  position: fixed;
+  margin-top: 60px; /* Space for the fixed navbar */
+  z-index: 9; /* Below the navbar */
+  background-color: rgba(255, 255, 255, 0.9); /* Background color */
+  padding: 20px; /* Optional padding */
+  border-radius: 10px; /* Optional rounded corners */
 }
 
 .red-text {
   color: red;
 }
-.nav-inner {
-  max-width: 1536px;
-  margin: auto;
-}
+
 
 .logo {
   display: inline-flex;
@@ -51,9 +66,11 @@ nav {
 }
 
 .tab-wrapper {
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   padding: 0px;
+  position: relative; /* Needed for sticky positioning */
+
   /* align-items: center; */
 }
 

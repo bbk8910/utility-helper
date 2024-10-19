@@ -12,12 +12,8 @@ const settings = [
 ];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(false);
-  const [anchorElUser, setAnchorElUser] = React.useState(false);
-
   return (
     <nav>
-      <div className="nav-inner">
         <div class="logo">
           <img src={`${process.env.PUBLIC_URL}/logo.png`} />
 
@@ -39,7 +35,7 @@ function Navbar() {
             UTILITY HELPER
           </Typography>
         </div>
-      </div>
+
     </nav>
   );
 }
