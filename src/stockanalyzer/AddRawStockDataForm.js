@@ -244,9 +244,7 @@ export default function AddRawStockDataForm(props) {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h4" component="h1" className={classes.title}>
-        Add Stock
-      </Typography>
+
       <form onSubmit={handleSubmit(save)}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>

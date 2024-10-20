@@ -47,10 +47,7 @@ export function GrowthCalculator(props) {
   }
 
   return (
-    <Box className={classes.root}>
-      <Typography variant="h4" component="h1" className={classes.title}>
-        Add Data
-      </Typography>
+    <Box className={"page-wrapper"}>
       <form onSubmit={handleSubmit(calcualteResult)}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>

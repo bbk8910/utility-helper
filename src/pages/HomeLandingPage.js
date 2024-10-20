@@ -23,6 +23,8 @@ import Statics from "../statics/Statics";
 import EUnitCalculator from "../euc/EUnitCalculator";
 import {RentTrackerPage} from "../renttracker/RentTrackerPage";
 import {DateTimeCard} from "./DateTimeCard";
+import {DuoSharp, GamepadOutlined, GamesOutlined} from "@material-ui/icons";
+import {Handshake, HandymanOutlined} from "@mui/icons-material";
 
 const features = [
     {
@@ -51,6 +53,18 @@ const features = [
         icon: <TipsAndUpdatesIcon style={{fontSize: 40, color: '#2196f3'}}/>,
         label: 'Probability',
         onclickUrl: '/probability'
+    },
+    {
+        id: 4,
+        icon: <GamesOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'Tic-Tac-Toe',
+        onclickUrl: '/tic-tac-toe'
+    },
+    {
+        id: 4,
+        icon: <GamepadOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'RPS',
+        onclickUrl: '/rps'
     },
 ];
 

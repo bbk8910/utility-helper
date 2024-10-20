@@ -9,6 +9,9 @@ import EUnitCalculator from "./euc/EUnitCalculator";
 import {RentTrackerPage} from "./renttracker/RentTrackerPage";
 import HomeLandingPage from "./pages/HomeLandingPage";
 import {GrowthCalculator} from "./growth/GrowthCalculator";
+import Probablity from "./probability/Probablity";
+import TickTacToe from "./games/TickTacToe";
+import RockPaperScissors from "./games/RockPaperScissors";
 
 function AppRoutes(props) {
   return (
@@ -21,6 +24,9 @@ function AppRoutes(props) {
       <Route path="/e-unit" component={EUnitCalculator} exact />
       <Route path="/rent-tracker" component={RentTrackerPage} exact />
       <Route path="/growth" component={GrowthCalculator} exact />
+      <Route path="/probability" component={Probablity} exact />
+      <Route path="/tic-tac-toe" component={TickTacToe} exact />
+      <Route path="/rps" component={RockPaperScissors} exact />
 
       <Route
         exact

@@ -63,6 +63,7 @@ nav {
 
 .page-wrapper {
   margin: auto;
+  margin-top: 2rem;
 }
 
 .tab-wrapper {
@@ -203,6 +204,7 @@ nav {
   .page-wrapper {
     display: block;
     max-width: 100%;
+    padding: 10px;
   }
 
   .my-form {

@@ -32,7 +32,7 @@ export const DateTimeCard = () => {
         <Card
             style={{
                 marginBottom: '20px',
-                padding: '20px',
+                padding: '5px',
                 background: 'rgba(74, 144, 226, 0.8)', // Slightly darker transparent background
                 backdropFilter: 'blur(15px)', // Stronger frosted glass effect
                 borderRadius: '20px', // More rounded corners
