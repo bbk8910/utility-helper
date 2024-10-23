@@ -238,3 +238,151 @@ nav {
     margin-top: 60px; /* Space for fixed navbar */
   }
 }
+
+
+/* hangman.css */
+.hangman-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hangman-drawing {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stand and rope */
+.stand {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: transparent;
+  border-left: 5px solid #4f4f4f;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 5px;
+  background-color: #4f4f4f;
+}
+
+.base {
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+  width: 150px;
+  height: 5px;
+  background-color: #4f4f4f;
+}
+
+.rope {
+  position: absolute;
+  top: 5px;
+  left: 120px;
+  width: 2px;
+  height: 40px;
+  background-color: #4f4f4f;
+}
+
+/* Hangman body parts */
+.hangman-part {
+  position: absolute;
+  background-color: #000;
+}
+
+.head {
+  top: 45px;
+  left: 95px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  background-color: transparent;
+}
+
+.body {
+  top: 85px;
+  left: 112px;
+  width: 5px;
+  height: 80px;
+  background-color: #000;
+}
+
+.arm-left {
+  top: 100px;
+  left: 75px;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  transform: rotate(45deg);
+}
+
+.arm-right {
+  top: 100px;
+  left: 115px;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  transform: rotate(-45deg);
+}
+
+.leg-left {
+  top: 160px;
+  left: 75px;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  transform: rotate(-45deg);
+}
+
+.leg-right {
+  top: 160px;
+  left: 115px;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  transform: rotate(45deg);
+}
+
+.word-display {
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+.guess-input {
+  margin-top: 20px;
+}
+
+.game-over {
+  color: red;
+  font-size: 18px;
+}
+
+.congratulations {
+  color: green;
+  font-size: 18px;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.word-selection {
+  margin-bottom: 20px;
+}
+
+.word-btn {
+  margin: 5px;
+}

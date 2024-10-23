@@ -66,6 +66,13 @@ const features = [
         label: 'RPS',
         onclickUrl: '/rps'
     },
+
+    {
+        id:10,
+        icon: <GamepadOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'Hangman',
+        onclickUrl: '/hangman'
+    },
 ];
 
 

@@ -12,6 +12,7 @@ import {GrowthCalculator} from "./growth/GrowthCalculator";
 import Probablity from "./probability/Probablity";
 import TickTacToe from "./games/TickTacToe";
 import RockPaperScissors from "./games/RockPaperScissors";
+import Hangman from "./games/Hangman";
 
 function AppRoutes(props) {
   return (
@@ -27,6 +28,7 @@ function AppRoutes(props) {
       <Route path="/probability" component={Probablity} exact />
       <Route path="/tic-tac-toe" component={TickTacToe} exact />
       <Route path="/rps" component={RockPaperScissors} exact />
+      <Route path="/hangman" component={Hangman} exact />
 
       <Route
         exact
