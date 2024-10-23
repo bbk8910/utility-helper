@@ -36,11 +36,14 @@ nav {
 
 .date-time-card {
   position: fixed;
+  top: 0; /* Adjusted to top for better fixed positioning */
   margin-top: 60px; /* Space for the fixed navbar */
   z-index: 9; /* Below the navbar */
   background-color: rgba(255, 255, 255, 0.9); /* Background color */
-  padding: 20px; /* Optional padding */
+  padding: 5px; /* Optional padding */
   border-radius: 10px; /* Optional rounded corners */
+  width: calc(100% - 40px); /* Make the card responsive */
+  left: 20px; /* Center it with some margins */
 }
 
 .red-text {
@@ -227,5 +230,11 @@ nav {
     width: 100%;
     max-width: 100%;
     margin-top: 20px;
+  }
+
+  .date-time-card {
+    width: calc(100% - 40px); /* Full width on small screens */
+    left: 20px; /* Centering */
+    margin-top: 60px; /* Space for fixed navbar */
   }
 }

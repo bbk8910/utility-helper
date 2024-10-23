@@ -34,12 +34,12 @@ const AnalogWatch = () => {
                 width: 150, // Decreased size
                 height: 150, // Decreased size
                 borderRadius: '50%',
-                border: '4px solid #333', // Scaled down border thickness
+                // border: '4px solid #333', // Scaled down border thickness
                 position: 'relative',
                 backgroundColor: 'rgba(255,255,255,0.13)',
                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
                 mx: 'auto',
-                my: 4,
+                my: 1,
             }}
         >
             {/* Hour Hand */}
