@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField, Typography, Box, Grid } from "@mui/material";
+import {ServiceButton} from "../component/ServiceButton";
 
 // Words to guess
 const questions = [
@@ -38,10 +39,17 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function Hangman(props) {
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-    const [word] = useState(randomQuestion.answer);
-    const [question] = useState(randomQuestion.question);
+    const [word,setWord] = useState(randomQuestion.answer);
+    const [question,setQuestion] = useState(randomQuestion.question);
     const [guesses, setGuesses] = useState(new Set());
     const [wrongGuesses, setWrongGuesses] = useState(0);
+
+    function reset(){
+        setWord(randomQuestion.answer)
+        setQuestion(randomQuestion.question)
+        setGuesses(new Set())
+        setWrongGuesses(0)
+    }
 
     const maxWrongGuesses = 6;
 
@@ -130,9 +138,26 @@ function Hangman(props) {
                 renderLetterButtons()
             )}
 
+            <Box
+                sx={{
+
+                    marginTop: '20px',
+
+                }}>
             <Typography variant="body1" className="wrong-guess-count">
                 Wrong guesses: {wrongGuesses} / {maxWrongGuesses}
             </Typography>
+            </Box>
+
+            <Box
+                sx={{
+
+                    marginTop: '20px',
+
+                }}>
+            <ServiceButton  onClick={reset} name={"Replay"}/>
+            </Box>
+
         </div>
     );
 }
