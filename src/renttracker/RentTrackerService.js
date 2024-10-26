@@ -83,8 +83,8 @@ export function getCurrentNepaliDateInString() {
     const symbols = Object.getOwnPropertySymbols(obj);
     const year = obj[symbols[0]];
     const monthIndex = obj[symbols[1]];
-    const month = (monthIndex + 1) > 10 ? (monthIndex + 1) : "0" + (monthIndex + 1);
-    const date = Number(obj[symbols[2]]) > 10 ? obj[symbols[2]] : "0" + obj[symbols[2]];
+    const month = (monthIndex + 1) > 9 ? (monthIndex + 1) : "0" + (monthIndex + 1);
+    const date = Number(obj[symbols[2]]) > 9 ? obj[symbols[2]] : "0" + obj[symbols[2]];
     return year + "-" + month + "-" + date;
 }
 
