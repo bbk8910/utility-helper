@@ -31,7 +31,7 @@ nav {
   position: fixed;
   top: 0; /* Stick to the top */
   z-index: 10; /* Ensure it is above other content */
-  background-color: white; /* Set a background color to avoid transparency issues */
+  background-color: white; /* SetOperation a background color to avoid transparency issues */
 }
 
 .date-time-card {

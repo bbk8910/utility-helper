@@ -73,6 +73,24 @@ const features = [
         label: 'Hangman',
         onclickUrl: '/hangman'
     },
+    {
+        id:11,
+        icon: <GamepadOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'Shape',
+        onclickUrl: '/shape'
+    },
+    {
+        id:12,
+        icon: <GamepadOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'Set',
+        onclickUrl: '/setOperation'
+    },
+    {
+        id:13,
+        icon: <GamepadOutlined style={{fontSize: 40, color: '#2196f3'}}/>,
+        label: 'Compound Interest',
+        onclickUrl: '/compoundICalculator'
+    }
 ];
 
 

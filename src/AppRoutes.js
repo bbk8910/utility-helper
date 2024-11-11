@@ -13,6 +13,9 @@ import Probablity from "./probability/Probablity";
 import TickTacToe from "./games/TickTacToe";
 import RockPaperScissors from "./games/RockPaperScissors";
 import Hangman from "./games/Hangman";
+import AreaCalculator from "./games/AreaCalculator";
+import SetOperation from "./games/SetOperation";
+import CompoundInterestCalculator from "./games/CompoundInterestCalculator";
 
 function AppRoutes(props) {
   return (
@@ -29,6 +32,9 @@ function AppRoutes(props) {
       <Route path="/tic-tac-toe" component={TickTacToe} exact />
       <Route path="/rps" component={RockPaperScissors} exact />
       <Route path="/hangman" component={Hangman} exact />
+      <Route path="/shape" component={AreaCalculator} exact />
+      <Route path="/setOperation" component={SetOperation} exact />
+      <Route path="/compoundICalculator" component={CompoundInterestCalculator} exact />
 
       <Route
         exact
